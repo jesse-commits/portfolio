@@ -1,2 +1,5 @@
 import '../styles/styles.css'
-alert("testing")
+import Canvas from './modules/Canvas'
+
+new Canvas()
+

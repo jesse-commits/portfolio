@@ -6,7 +6,14 @@
     <title></title>
 </head>
 <body>
-    <h1>Hello World</h1>
+    <canvas id="mainCanvas"></canvas>
+
+    <picture>
+        <source srcset="assets/images/puppy-large.jpg 1920w" media="(min-width: 1380px)" alt="puppy"> 
+        <source srcset="assets/images/puppy-medium.jpg 1380w" media="(min-width: 990px)" alt="puppy">
+        <source srcset="assets/images/puppy-small.jpg 990w" media="(min-width: 640px)" alt="puppy">
+        <img srcset="assets/images/puppy-smaller.jpg 640w" alt="puppy">
+    </picture>
     <script src="bundled.js"></script>
 </body>
 </html>
