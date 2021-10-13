@@ -1,0 +1,49 @@
+.spa {
+
+    & footer {
+        height: 34px;
+        @mixin clearfix;
+    }
+
+    @mixin atPortrait {
+        & section {
+            width: 100%;
+        }
+        & section > div:first-of-type {
+            height: 110px;
+        }
+        & div > div {
+            height: 110px;
+        }
+    }
+
+    @mixin atLandscape {
+        & section {
+            width: 50%;
+        }
+        & section:first-of-type {
+            float: left;
+        }
+
+        & section:last-of-type {
+            float: right;
+        }
+
+        & section > div:first-of-type {
+            height: 144px;
+        }
+
+        & div > div {
+            width: 50%;
+            height: 199px;
+        }
+
+        & div > div:first-of-type {
+            float: left;
+        }
+
+        & div > div:last-of-type {
+            float: right;
+        }
+    }
+}
