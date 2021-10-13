@@ -1,0 +1,8 @@
+.large-hero {
+    margin-bottom: 4rem;
+
+    & img {
+        width: 100%;
+        margin: 0 auto;
+    }
+}

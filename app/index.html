@@ -5,19 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
 </head>
-<body>
+<body onload="getTime()">
     <canvas id="mainCanvas"></canvas>
 
+<div class="large-hero">
     <picture>
-        <source srcset="assets/images/puppy-large.jpg 1920w" media="(min-width: 1380px)" alt="puppy"> 
-        <source srcset="assets/images/puppy-medium.jpg 1380w" media="(min-width: 990px)" alt="puppy">
-        <source srcset="assets/images/puppy-small.jpg 990w" media="(min-width: 640px)" alt="puppy">
-        <img srcset="assets/images/puppy-smaller.jpg 640w" alt="puppy">
+        <source srcset="assets/images/puppy-large-hi-dpi.jpg" media="(min-width: 1280px)" alt="puppy"> 
+        <source srcset="assets/images/puppy-large.jpg" media="(min-width: 890px)" alt="puppy">
+        <source srcset="assets/images/puppy-small.jpg" media="(min-width: 640px)" alt="puppy">
+        <img srcset="assets/images/puppy-small.jpg" alt="puppy">
     </picture>
+</div>
 
-<div class="spa color-4">
+<div class="spa time color-4">
     <section>
-        <div class="color-0">FOO</div>
+        <div class="color-0" id="time">FOO</div>
         <div>
             <div class="color-1">FOO</div>
             <div class="color-2">FOO</div>
@@ -30,9 +32,52 @@
             <div class="color-2">FOO</div>
         </div>
     </section>
-    <footer class="wet-asphalt">FOOTER</footer>
+    <footer>FOOTER</footer>
 </div>
 
     <script src="bundled.js"></script>
+    <script>
+let time = document.getElementById("time")
+
+function getTime(){
+  let today = new Date()
+  let dayArray = ["sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+  var monthArray = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+  let h = today.getHours()
+  let m = today.getMinutes()
+  let s = today.getSeconds()
+  let d = dayArray[today.getDay()]
+  let mo = monthArray[today.getMonth()]
+  let day = today.getUTCDate()
+  let y = today.getFullYear()
+  
+  //Add 0 in front of numbers < 10
+  m = checkTime(m)
+  s = checkTime(s)
+  day = checkTime(day)
+  
+  let ourTime = `<article class="time__article">
+                    <h1>${h}:${m}:${s}</h1>
+                    <span>${d}</span>
+                    <span> ${mo} ${day-1}, ${y}</span>
+                </article>`
+
+   time.innerHTML = ourTime
+  
+  let t = setTimeout(function(){getTime()},500)
+}
+
+function checkTime(i) {
+  if (i < 10) {
+    i = "0" + i;
+  }
+  return i;
+}
+
+
+
+
+ 
+    </script>
 </body>
 </html>
