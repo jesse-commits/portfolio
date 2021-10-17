@@ -16,7 +16,7 @@
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _styles_styles_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../styles/styles.css */ \"./app/assets/styles/styles.css\");\n/* harmony import */ var _modules_Canvas__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/Canvas */ \"./app/assets/scripts/modules/Canvas.js\");\n\r\n\r\n\r\nnew _modules_Canvas__WEBPACK_IMPORTED_MODULE_1__[\"default\"]()\r\n\n\n//# sourceURL=webpack://sousmate/./app/assets/scripts/App.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _styles_styles_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../styles/styles.css */ \"./app/assets/styles/styles.css\");\n/* harmony import */ var _modules_Canvas__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/Canvas */ \"./app/assets/scripts/modules/Canvas.js\");\n/* harmony import */ var _modules_Time__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/Time */ \"./app/assets/scripts/modules/Time.js\");\n\r\n\r\n\r\n\r\nnew _modules_Canvas__WEBPACK_IMPORTED_MODULE_1__[\"default\"]()\r\nnew _modules_Time__WEBPACK_IMPORTED_MODULE_2__[\"default\"]()\r\n\r\n\n\n//# sourceURL=webpack://sousmate/./app/assets/scripts/App.js?");
 
 /***/ }),
 
@@ -28,6 +28,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _sty
 
 "use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nlet paper = __webpack_require__(/*! paper */ \"./node_modules/paper/dist/paper-full.js\")\r\nlet jquery = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\")\r\n\r\nclass Canvas {\r\n    constructor(){\r\n        this.drawCanvas()\r\n        this.events()\r\n    }\r\n\r\n\r\ndrawCanvas(){\r\n    paper.install(window)\r\n    paper.setup(document.getElementById('mainCanvas'))\r\n    \r\n    let c = Shape.Circle(200, 200, 80)\r\n    c.fillColor = 'black'\r\n    let text = new PointText(200, 200)\r\n    text.justification = 'center'\r\n    text.fillColor = 'white'\r\n    text.fontSize = 20;\r\n    text.content = 'Hello World'\r\n\r\n    paper.view.draw()\r\n}\r\n\r\nevents() {\r\n    let tool = new Tool()\r\n\r\n    tool.onMouseDown = function(event) {\r\n        let d = Shape.Circle(event.point, 20)\r\n        d.fillColor = 'blue'\r\n    }\r\n}\r\n\r\n}\r\n\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Canvas);\n\n//# sourceURL=webpack://sousmate/./app/assets/scripts/modules/Canvas.js?");
+
+/***/ }),
+
+/***/ "./app/assets/scripts/modules/Time.js":
+/*!********************************************!*\
+  !*** ./app/assets/scripts/modules/Time.js ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nclass Time {\r\n    constructor(){\r\n        this.getTime()\r\n    }\r\n\r\n getTime(){\r\n    let time = document.getElementById(\"time\")\r\n\r\n    let today = new Date()\r\n    let dayArray = [\"Sunday\", \"Monday\", \"Tuesday\", \"Wednesday\", \"Thursday\", \"Friday\", \"Saturday\"]\r\n    var monthArray = [\"January\",\"February\",\"March\",\"April\",\"May\",\"June\",\"July\",\"August\",\"September\",\"October\",\"November\",\"December\"];\r\n    let h = today.getHours()\r\n    let m = today.getMinutes()\r\n    let s = today.getSeconds()\r\n    let d = dayArray[today.getDay()]\r\n    let mo = monthArray[today.getMonth()]\r\n    let day = today.getUTCDate()\r\n    let y = today.getFullYear()\r\n    \r\n        function checkTime(i){\r\n            if (i < 10) {\r\n                i = \"0\" + i;\r\n            }\r\n            return i;\r\n        }\r\n\r\n    //Add 0 in front of numbers < 10\r\n    m = checkTime(m)\r\n    s = checkTime(s)\r\n    day = checkTime(day)\r\n    \r\n    let ourTime = `<article class=\"time__article\">\r\n                        <h1>${h}:${m}:${s}</h1>\r\n                        <span>${d}</span>\r\n                        <span> ${mo} ${day-1}, ${y}</span>\r\n                    </article>`\r\n    \r\n        time.innerHTML = ourTime\r\n\r\n    let that = this\r\n\r\n    let t = setTimeout(function(){that.getTime()},500)\r\n    \r\n }\r\n\r\n}\r\n \r\n /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Time);\n\n//# sourceURL=webpack://sousmate/./app/assets/scripts/modules/Time.js?");
 
 /***/ }),
 
