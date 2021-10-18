@@ -1,0 +1,12 @@
+.ellipsis {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.ellipsis::after {
+    content:"...";
+    float: right;
+    position: relative;
+    bottom: 24px;
+}

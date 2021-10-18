@@ -7,4 +7,190 @@
     padding: 0 20px 20px 20px;
 }
 
+& h1 {
+    @mixin atPortrait {
+        margin: 5% 3%;
+        padding: 0;
+        float: left;
+    }
+}
+
+& span:first-of-type {
+    @mixin atPortrait {
+        display: block;
+    }
+}
+
+@mixin atLandscape {
+    text-align: center;
+}
+
+}
+
+/*News and Task styles*/
+
+.news {
+    font-size: .7rem;
+    & ul {
+        @mixin atPortrait {
+            display: inline-block;
+        }
+        @mixin atLandscape {
+            padding: 5%;
+            margin: 0;
+        }
+    }
+    & ul li p {
+        @mixin atPortrait {
+            margin: 5px;
+        }
+    }
+    & ul li h4 {
+        @mixin atPortrait {
+            margin: 2px;
+        }
+    }
+}
+
+.tasks {
+    font-size: .7rem;
+    & ul {
+        @mixin atPortrait {
+            display: inline-block;
+        }
+        @mixin atLandscape {
+            padding: 5%;
+            margin: 0;
+        }
+    }
+
+    & ul li p {
+        @mixin atPortrait {
+            margin: 5px;
+        }
+    }
+    & ul li h4 {
+        @mixin atPortrait {
+            margin: 2px;
+        }
+    }
+}
+
+.weather {
+    & > ul {
+        margin: 0;
+        padding: 5% 0;
+    }
+    & > ul > li:first-child {
+        width: 34%;
+        margin: 0 0 0 5%;
+        @mixin atLandscape {
+            width: 20%;
+            margin-left: 10%;
+        }
+    }
+    & > ul > li:last-child {
+        width: 60%;
+    }
+    & > ul > li > ul {
+        padding: 0;
+        margin: -5% 0 0 5%;
+        width: 60%;
+        display: inline-block;
+
+        @mixin atLandscape {
+            width: 100%;
+            margin: 0 0 0 5%;
+        }
+    }
+
+    & > ul > li:last-child > ul > li:first-child {
+        width: 40%;
+        float: left;
+       
+        @mixin atLandscape {
+            width: 50%;
+            text-align: left;
+        }
+    }
+
+
+    & > ul > li:last-child > ul > li:last-child {
+        width: 40%;
+        float: right;
+
+        @mixin atLandscape {
+            width: 50%;
+            text-align: left;
+        }
+    }
+
+
+    & > ul > li:last-child > ul > li:first-child > ul > li > span{
+    
+        @mixin atLandscape {
+           margin: 0 10% 0 0;
+        }
+    }
+
+    & > ul > li:last-child > ul > li:last-child > ul > li > span{
+    
+        @mixin atLandscape {
+           margin: 0 10% 0 0;
+        }
+    }
+
+
+
+    & > ul > li:last-child > ul > li > ul {
+        margin: 0;
+        padding: 0;
+    }
+
+
+    & span {
+        padding: 10% 0 0 0;
+        margin: 0 auto;
+        text-align: left;
+        font-size: 1.2rem;
+
+
+        @mixin atPortrait {
+            font-size: .8rem;
+        }
+    }
+
+    & > ul > li {
+        float: left;
+        margin: 0;
+        @mixin atPortrait {
+            display: inline;
+            float: left;
+        }
+    }
+
+    & > ul > li:first-child > ul > li:first-child {
+        width: 100%;
+        @mixin atPortrait {
+            width: 25%;
+            float: left;
+            text-align: right;
+        }
+    }
+
+    & > ul > li:first-child > ul > li:last-child {
+        width: 100%;
+        @mixin atPortrait {
+            width: 60%;
+            float: left;
+            text-align: left;
+            margin-left: 70%;
+            margin-top: -50%;
+        }
+    }
+
+    & > ul > li:first-child > ul > li:last-child ul {
+        width: 100%;
+        padding: 0;
+    }
 }

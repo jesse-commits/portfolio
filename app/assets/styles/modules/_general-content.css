@@ -1,0 +1,29 @@
+.general-content {
+    &--large {
+        font-size: 2.1rem;
+    }
+    &--dark {
+        color: $dark;
+    }
+    &--left {
+        float: left;
+        @mixin clearfix;
+    }
+    &--right {
+        float: right;
+        @mixin clearfix;
+    }
+    &--center {
+        text-align: center;
+    }
+    &--left-at-large {
+        @mixin atLandscape {
+            float: left;
+        }
+    }
+    &--right-at-large {
+        @mixin atLandscape {
+            float: right;
+        }
+    }
+}
